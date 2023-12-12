@@ -2,7 +2,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Ressource, RessourceService } from 'src/app/shared/services/ressource.service';
+import { RessourceService, Ressource } from '../../shared/services/ressource.service';
 
 @Component({
   selector: 'app-ressource-form',
@@ -15,6 +15,7 @@ export class RessourceFormComponent implements OnInit {
     description: '',
     dateAjout: new Date()
   };
+  isEditMode: boolean = false; // Ajout de la variable pour suivre le mode d'édition
 
   constructor(
     private route: ActivatedRoute,
@@ -29,18 +30,22 @@ export class RessourceFormComponent implements OnInit {
         const existingRessource = this.ressourceService.getRessourceByTitre(titre);
         if (existingRessource) {
           this.ressource = { ...existingRessource };
+          this.isEditMode = true; // La ressource existe, donc on est en mode édition
         }
       }
     });
   }
 
   saveRessource() {
-    // Ajouter ou mettre à jour la ressource
-    if (this.ressource.titre) {
-      this.ressourceService.addOrUpdateRessource(this.ressource);
-
-      // Rediriger vers la liste des ressources
-      this.router.navigate(['/']);
+    if (this.isEditMode) {
+      // Mode édition : appeler la méthode de mise à jour
+      this.ressourceService.updateRessource(this.ressource);
+    } else {
+      // Mode ajout : appeler la méthode d'ajout
+      this.ressourceService.addRessource(this.ressource);
     }
+
+    // Rediriger vers la liste des ressources
+    this.router.navigate(['/']);
   }
 }

@@ -4,6 +4,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Ressource, RessourceService } from 'src/app/shared/services/ressource.service';
+
+
+
 @Component({
   selector: 'app-ressource-list',
   templateUrl: './ressource-list.component.html',
@@ -13,13 +16,16 @@ export class RessourceListComponent implements OnInit, OnDestroy {
   ressources: Ressource[] = [];
   private ressourcesSubscription: Subscription = new Subscription();
 
-  constructor(private router: Router, private ressourceService: RessourceService) {}
-
   ngOnInit() {
     this.ressourcesSubscription = this.ressourceService.getRessources().subscribe(ressources => {
       this.ressources = ressources;
     });
   }
+
+
+
+  constructor(private router: Router, private ressourceService: RessourceService) {}
+
 
   ngOnDestroy() {
     // N'oubliez pas de désabonner pour éviter les fuites de mémoire
@@ -46,3 +52,5 @@ export class RessourceListComponent implements OnInit, OnDestroy {
     }
   }
 }
+// ressource-list.component.ts
+

@@ -19,7 +19,7 @@
         <label for="dateAjout">Date d'ajout:</label>
         <input type="date" id="dateAjout" name="dateAjout" [(ngModel)]="ressource.dateAjout" required>
       </div>
-      <button type="submit">{{ ressource.titre ? 'Modifier' : 'Ajouter' }}</button>
+      <button type="submit">{{ ressource ? 'Modifier' : 'Ajouter' }}</button>
     </form>
   </div>
   

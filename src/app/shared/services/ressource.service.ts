@@ -1,7 +1,8 @@
 // ressource.service.ts
 
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -50,11 +51,19 @@ export class RessourceService {
       this.ressources.push(ressource);
     }
   }
- 
+  updateRessource(ressource: Ressource): void {
+    const existingRessourceIndex = this.ressources.findIndex(r => r.titre === ressource.titre);
+
+    if (existingRessourceIndex !== -1) {
+      // Mise à jour de la ressource existante
+      this.ressources[existingRessourceIndex] = { ...ressource };
+    }
+  }
   deleteRessource(ressource: Ressource): void {
     const index = this.ressources.findIndex(r => r.titre === ressource.titre);
     if (index !== -1) {
       this.ressources.splice(index, 1);
+      this.updateLocalStorage();
     }
   }
    editRessource(editedRessource: Ressource) {

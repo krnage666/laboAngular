@@ -38,12 +38,4 @@ export class RessourceDetailComponent implements OnInit {
     // Naviguer vers le formulaire de modification avec le titre comme paramètre
     this.router.navigate(['/edit', this.ressource?.titre]);
   }
-
-  deleteRessource() {
-    // Supprimer la ressource et revenir à la liste des ressources
-    if (this.ressource?.titre) {
-      this.ressourceService.deleteRessource(this.ressource);
-      this.router.navigate(['/']);
-    }
-  }
 }
