@@ -1,0 +1,22 @@
+/* ressource-list.component.css */
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #0366d6;
+    font-weight: bold;
+  }
+  

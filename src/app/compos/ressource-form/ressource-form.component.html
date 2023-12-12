@@ -1,0 +1,25 @@
+<!-- ressource-form.component.html -->
+
+<div class="container">
+    <h2>{{ ressource.titre ? 'Modifier' : 'Ajouter' }} une Ressource</h2>
+    <form (ngSubmit)="saveRessource()">
+      <div>
+        <label for="titre">Titre:</label>
+        <input type="text" id="titre" name="titre" [(ngModel)]="ressource.titre" required>
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" [(ngModel)]="ressource.description" required></textarea>
+      </div>
+      <div>
+        <label for="url">URL:</label>
+        <input type="text" id="url" name="url" [(ngModel)]="ressource.url">
+      </div>
+      <div>
+        <label for="dateAjout">Date d'ajout:</label>
+        <input type="date" id="dateAjout" name="dateAjout" [(ngModel)]="ressource.dateAjout" required>
+      </div>
+      <button type="submit">{{ ressource.titre ? 'Modifier' : 'Ajouter' }}</button>
+    </form>
+  </div>
+  

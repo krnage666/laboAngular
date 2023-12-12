@@ -1,0 +1,21 @@
+<!-- ressou<rce-detail.component.html -->
+
+<div class="container" *ngIf="ressource">
+    <h2>Détails de la Ressource</h2>
+    <div>
+      <strong>Titre:</strong> {{ ressource.titre }}
+    </div>
+    <div>
+      <strong>Description:</strong> {{ ressource.description }}
+    </div>
+    <div *ngIf="ressource.url">
+      <strong>URL:</strong> <a href="{{ ressource.url }}" target="_blank">{{ ressource.url }}</a>
+    </div>
+    <div>
+      <strong>Date d'ajout:</strong> {{ ressource.dateAjout |  date: 'dd/MM/yyyy'  }}
+    </div>
+    <button (click)="editRessource()">Modifier la Ressource</button>
+    <button (click)="deleteRessource()">Effacer la Ressource</button>
+  </div>
+  <button (click)="goToRessourceList()">Retour à la liste des Ressources</button>
+

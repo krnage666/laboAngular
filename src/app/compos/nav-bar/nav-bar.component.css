@@ -1,0 +1,37 @@
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+  
+  .nav-item {
+    margin-right: 20px;
+    position: relative;
+  }
+  
+  .nav-item a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    top: 100%;
+    left: 0;
+    min-width: 120px;
+  }
+  
+  .dropdown-menu li a {
+    display: block;
+    padding: 5px 10px;
+    color: white;
+    background-color: black;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
