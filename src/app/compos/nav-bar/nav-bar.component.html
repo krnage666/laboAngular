@@ -1,18 +1,21 @@
-<ul id="demos" class="dropdown-content">
+<!--ul id="demos" class="dropdown-content">
     <li><a routerLink="upload">UPLOAD</a></li>
 
 </ul>
+
 
 <ul id="exos" class="dropdown-content">
 
     <li><a routerLink="ressource-list">Listes </a></li>
     <li><a routerLink="ressource-form">Ajout de ressources </a></li>
+
 </ul>
 
 <nav>
     <div class="nav-wrapper">
         <ul class="right hide-on-med-and-down">
             <li><a routerLink="home">Home</a></li>
+            <li><a routerLink="app">PrimeNG</a></li>
             <li>
                 <a class="dropdown-trigger" data-target="demos">
                    Image
@@ -27,4 +30,41 @@
             </li>
         </ul>
     </div>
-</nav>
+</nav-->
+
+  
+  <mat-toolbar color="primary">
+    <span>Labo : Ressources </span>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="mainMenu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #mainMenu="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="imageMenu">
+        <mat-icon>image</mat-icon>
+        <span>IMAGE</span>
+      </button>
+      <button mat-menu-item [matMenuTriggerFor]="resourceMenu">
+        <mat-icon>folder</mat-icon>
+        <span>Ressource</span>
+      </button>
+    </mat-menu>
+    <mat-menu #imageMenu="matMenu">
+      <button  mat-menu-item routerLink="upload">
+        <mat-icon>cloud_upload</mat-icon>
+        <span>Upload</span>
+      </button>
+      <!-- Autres actions spécifiques au menu Image -->
+    </mat-menu>
+    <mat-menu #resourceMenu="matMenu">
+      <button mat-menu-item routerLink="/ressource-list">
+        <mat-icon>list</mat-icon>
+        <span>Liste de Ressources</span>
+      </button>
+      <button mat-menu-item routerLink="/ressource-form">
+        <mat-icon>add</mat-icon>
+        <span>Ajout de Ressources</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+  

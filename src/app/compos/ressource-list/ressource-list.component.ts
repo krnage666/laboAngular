@@ -49,6 +49,7 @@ export class RessourceListComponent implements OnInit, OnDestroy {
     const index = this.ressources.findIndex(r => r.titre === ressource.titre);
     if (index !== -1) {
       this.ressources.splice(index, 1);
+
     }
   }
 }
